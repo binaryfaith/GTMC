@@ -29,6 +29,7 @@ const DashboardPage = () => {
       >
         New Thread
       </button>
+      {threads && threads.map((thread) => (
       {threads && threads.map((thread) => ( // Safeguard against null or undefined threads
         <div
           key={thread.id}
@@ -55,6 +56,7 @@ const DashboardPage = () => {
       ))}
     </div>
   );
+};
 };
       ))} {/* This closing parenthesis matches the opening parenthesis of the map function */}
     </div>
