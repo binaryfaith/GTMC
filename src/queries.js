@@ -11,14 +11,14 @@ export const getUserThreads = async (args, context) => {
     }
   });
 }
-export const getThread = async (args, context) => {
+export const getThread = async ({ threadId }, context) => {
   if (!context.user) {
     throw new HttpError(401);
   }
 
   return context.entities.Thread.findUnique({
     where: {
-      id: args.threadId
+      id: parseInt(threadId)
     }
   });
 };
