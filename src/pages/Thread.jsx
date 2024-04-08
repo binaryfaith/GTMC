@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery, useAction, closeThread } from 'wasp/client/operations';
+import { useQuery, useAction, getThread, closeThread } from 'wasp/client/operations';
 
 const ThreadPage = () => {
   const threadId = useParams().threadId;
