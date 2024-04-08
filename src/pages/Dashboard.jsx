@@ -8,13 +8,15 @@ const DashboardPage = () => {
   const closeThreadFn = useAction(closeThread);
 
   if (isLoading) return 'Loading...';
-  if (error) return 'Error: ' + error;
   if (error) return 'Error: ' + error.message; // Ensure that error messages are displayed correctly
 
   const handleCreateThread = () => {
     createThreadFn({ title: 'New Thread' });
   };
 
+  const handleCloseThread = (threadId) => {
+    closeThreadFn({ threadId });
+  };
   const handleCloseThread = (threadId) => {
     closeThreadFn({ threadId });
   };
@@ -50,4 +52,5 @@ const DashboardPage = () => {
   );
 }
 
+export default DashboardPage;
 export default DashboardPage;
