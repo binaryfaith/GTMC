@@ -14,12 +14,6 @@ const DashboardPage = () => {
     createThreadFn({ title: 'New Thread' });
   };
 
-  const handleCloseThread = (threadId) => {
-    closeThreadFn({ threadId });
-  };
-  const handleCloseThread = (threadId) => {
-    closeThreadFn({ threadId });
-  };
 
   // Check if threads data is available before trying to map over it
   if (!threads) return 'No threads to display';
@@ -40,7 +34,7 @@ const DashboardPage = () => {
           <div>{thread.title}</div>
           <div>
             <button
-              onClick={() => handleCloseThread(thread.id)}
+              // No onClick handler for close button
               className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
             >
               Close
@@ -52,5 +46,4 @@ const DashboardPage = () => {
   );
 }
 
-export default DashboardPage;
 export default DashboardPage;
