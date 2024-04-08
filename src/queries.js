@@ -1,6 +1,6 @@
 import { HttpError } from 'wasp/server'
 
-export const getUserThreads = async () => {
+export const getUserThreads = async (args, context) => {
 
   return context.entities.Thread.findMany({
     where: {
