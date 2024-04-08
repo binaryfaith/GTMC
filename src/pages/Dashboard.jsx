@@ -10,16 +10,12 @@ const DashboardPage = () => {
 
   if (isLoading) return 'Loading...';
   if (error) return 'Error: ' + error.message;
-  if (error) return 'Error: ' + error.message; // Ensure that error messages are displayed correctly
 
   const handleCreateThread = () => {
     createThreadFn({ title: 'New Thread' });
   };
 
 
-  const handleAddThread = () => {
-    createThreadFn({ title: 'New Thread' });
-  };
 
   return (
     <div className='p-4'>
@@ -29,7 +25,7 @@ const DashboardPage = () => {
       >
         New Thread
       </button>
-      {threads && threads.map((thread) => (
+      {threads?.map((thread) => (
       {threads && threads.map((thread) => ( // Safeguard against null or undefined threads
         <div
           key={thread.id}
@@ -39,7 +35,7 @@ const DashboardPage = () => {
           <div>
           <div className='flex gap-2'>
             <button
-              onClick={handleAddThread}
+              onClick={handleCreateThread}
               className='bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded'
             >
               +
@@ -58,8 +54,5 @@ const DashboardPage = () => {
   );
 };
 };
-      ))} {/* This closing parenthesis matches the opening parenthesis of the map function */}
-    </div>
-  ) 
 
 export default DashboardPage;
