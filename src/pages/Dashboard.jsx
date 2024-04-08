@@ -15,10 +15,6 @@ const DashboardPage = () => {
   };
 
 
-  // Check if threads data is available before trying to map over it
-  if (!threads) return 'No threads to display';
-  if (error) return 'Error: ' + error.message;
-
   const handleAddThread = () => {
     createThreadFn({ title: 'New Thread' });
   };
@@ -31,7 +27,6 @@ const DashboardPage = () => {
       >
         New Thread
       </button>
-      {threads && threads.map((thread) => (
       {threads && threads.map((thread) => ( // Safeguard against null or undefined threads
         <div
           key={thread.id}
