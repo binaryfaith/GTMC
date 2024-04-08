@@ -1,13 +1,10 @@
 import { HttpError } from 'wasp/server'
 
-export const getUserThreads = async (args, context) => {
-  if (!context.user) {
-    throw new HttpError(401);
-  }
+export const getUserThreads = async () => {
 
   return context.entities.Thread.findMany({
     where: {
-      userId: context.user.id
+      // Removed the user ID filter to fetch all threads
     }
   });
 }
