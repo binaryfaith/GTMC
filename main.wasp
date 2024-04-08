@@ -3,13 +3,6 @@ app MyApp {
     version: "^0.13.1"
   },
   title: "GTMC Demo",
-  auth: {
-    userEntity: User,
-    methods: {
-      usernameAndPassword: {}
-    },
-    onAuthFailedRedirectTo: "/signup"
-  }
 }
 
 route SignupRoute { path: "/signup", to: SignupPage }
@@ -50,11 +43,9 @@ query getUserThreads {
 route DashboardRoute { path: "/", to: DashboardPage }
 page DashboardPage {
   component: import DashboardPage from "@src/pages/Dashboard.jsx",
-  authRequired: true
 }
 
 route ThreadRoute { path: "/thread/:threadId", to: ThreadPage }
 page ThreadPage {
   component: import ThreadPage from "@src/pages/Thread.jsx",
-  authRequired: true
 }
