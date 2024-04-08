@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// Removed unused Link import
 import { useQuery, useAction, getUserThreads, createThread, closeThread } from 'wasp/client/operations';
 
 const DashboardPage = () => {
@@ -8,6 +8,7 @@ const DashboardPage = () => {
   const closeThreadFn = useAction(closeThread);
 
   if (isLoading) return 'Loading...';
+  if (error) return 'Error: ' + error.message;
   if (error) return 'Error: ' + error.message; // Ensure that error messages are displayed correctly
 
   const handleCreateThread = () => {
@@ -42,6 +43,7 @@ const DashboardPage = () => {
               +
             </button>
             <button
+              onClick={() => closeThreadFn({ id: thread.id })}
               // No onClick handler for close button
               className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
             >
@@ -49,6 +51,10 @@ const DashboardPage = () => {
             </button>
           </div>
         </div>
+      ))}
+    </div>
+  );
+};
       ))} {/* This closing parenthesis matches the opening parenthesis of the map function */}
     </div>
   ) 
