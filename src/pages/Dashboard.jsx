@@ -1,5 +1,6 @@
 import React from 'react';
 // Removed unused Link import
+// Removed unused Link import
 import { useQuery, useAction, getUserThreads, createThread, closeThread } from 'wasp/client/operations';
 
 const DashboardPage = () => {
@@ -28,7 +29,7 @@ const DashboardPage = () => {
       >
         New Thread
       </button>
-      {threads && threads.map((thread) => (
+      {threads && threads.map((thread) => ( // Safeguard against null or undefined threads
         <div
           key={thread.id}
           className='flex items-center justify-between bg-gray-100 p-4 mb-4 rounded-lg'
@@ -44,7 +45,7 @@ const DashboardPage = () => {
             </button>
             <button
               onClick={() => closeThreadFn({ id: thread.id })}
-              // No onClick handler for close button
+              onClick={() => closeThreadFn({ id: thread.id })}
               className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
             >
               Close
