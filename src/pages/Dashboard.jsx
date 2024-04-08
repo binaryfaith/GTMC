@@ -9,6 +9,7 @@ const DashboardPage = () => {
 
   if (isLoading) return 'Loading...';
   if (error) return 'Error: ' + error;
+  if (error) return 'Error: ' + error.message; // Ensure that error messages are displayed correctly
 
   const handleCreateThread = () => {
     createThreadFn({ title: 'New Thread' });
@@ -18,6 +19,9 @@ const DashboardPage = () => {
     closeThreadFn({ threadId });
   };
 
+  // Check if threads data is available before trying to map over it
+  if (!threads) return 'No threads to display';
+
   return (
     <div className='p-4'>
       <button
@@ -26,7 +30,7 @@ const DashboardPage = () => {
       >
         New Thread
       </button>
-      {threads.map((thread) => (
+      {threads && threads.map((thread) => ( // Safeguard against null or undefined threads
         <div
           key={thread.id}
           className='flex items-center justify-between bg-gray-100 p-4 mb-4 rounded-lg'
