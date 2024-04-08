@@ -28,7 +28,6 @@ const DashboardPage = () => {
         New Thread
       </button>
       {threads && threads.map((thread) => (
-      {threads && threads.map((thread) => ( // Safeguard against null or undefined threads
         <div
           key={thread.id}
           className='flex items-center justify-between bg-gray-100 p-4 mb-4 rounded-lg'
@@ -52,7 +51,6 @@ const DashboardPage = () => {
         </div>
       ))} {/* This closing parenthesis matches the opening parenthesis of the map function */}
     </div>
-  ); {/* This closing parenthesis matches the opening parenthesis of the return statement */}
-} {/* This closing brace matches the opening brace of the DashboardPage function */}
+  ) 
 
 export default DashboardPage;
