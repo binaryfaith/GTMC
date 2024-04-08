@@ -10,7 +10,8 @@ export const getUserThreads = async (args, context) => {
       userId: context.user.id
     }
   });
-}export const getThread = async (args, context) => {
+}
+export const getThread = async (args, context) => {
   if (!context.user) {
     throw new HttpError(401);
   }
